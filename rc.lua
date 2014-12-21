@@ -56,10 +56,10 @@ local exec   = function (s) oldspawn(s, false) end
 local shexec = awful.util.spawn_with_shell
 
 modkey        = "Mod4"
-terminal      = "termite"
-tmux          = "termite -e tmux"
-termax        = "termite --geometry 1680x1034+0+22"
-rootterm      = "sudo -i termite"
+terminal      = "konsole"
+tmux          = "konsole -e tmux"
+termax        = terminal
+rootterm      = "sudo -i konsole"
 browser       = "firefox"
 filemanager   = "spacefm"
 configuration = termax .. ' -e "vim -O $HOME/.config/awesome/rc.lua $HOME/.config/awesome/themes/' ..theme.. '/theme.lua"'
@@ -68,11 +68,11 @@ configuration = termax .. ' -e "vim -O $HOME/.config/awesome/rc.lua $HOME/.confi
 
 local layouts =
 {
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top
 }
 
 -- | Wallpaper | --
@@ -551,7 +551,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "KP_End",   function (c) c:geometry( { width = ww / 2, height = wh / 2, x = 0, y = wh / 2 + ph } ) end),
     awful.key({ modkey, "Control" }, "KP_Begin", function (c) c:geometry( { width = ww, height = wh, x = 0, y = ph } ) end),
     awful.key({ modkey,           }, "f",        function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey,           }, "c",        function (c) c:kill() end),
+    awful.key({ modkey,           }, "q",        function (c) c:kill() end),
     awful.key({ modkey,           }, "n",
         function (c)
             c.minimized = true
