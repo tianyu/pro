@@ -292,8 +292,8 @@ netwidgetul:set_bgimage(beautiful.widget_display)
 
 -- | Clock / Calendar | --
 
-mytextclock    = awful.widget.textclock(markup(clockgf, space3 .. "%H:%M" .. markup.font("Tamsyn 3", " ")))
-mytextcalendar = awful.widget.textclock(markup(clockgf, space3 .. "%a %d %b"))
+mytextclock    = awful.widget.textclock(markup(clockgf, space3 .. "%I:%M %p" .. markup.font("Tamsyn 3", " ")))
+mytextcalendar = awful.widget.textclock(markup(clockgf, space3 .. "%A %d %b"))
 
 widget_clock = wibox.widget.imagebox()
 widget_clock:set_image(beautiful.widget_clock)
