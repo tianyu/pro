@@ -492,7 +492,7 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "w",      function () mainmenu:show() end),
-    awful.key({ modkey            }, "r",      function () mypromptbox[mouse.screen]:run() end),
+    awful.key({                   }, "XF86WakeUp",      function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
