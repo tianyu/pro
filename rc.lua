@@ -262,7 +262,7 @@ fs_widget = wibox.widget.textbox()
 vicious.register(fs_widget, vicious.widgets.fs, vspace1 .. "${/ avail_gb}GB" .. vspace1, 2)
 
 widget_fs = wibox.widget.imagebox()
-widget_fs:set_image(beautiful.widget_fs)
+widget_fs:set_image(beautiful.widget_fs_hdd)
 fswidget = wibox.widget.background()
 fswidget:set_widget(fs_widget)
 fswidget:set_bgimage(beautiful.widget_display)
@@ -289,6 +289,17 @@ widget_netul:set_image(beautiful.widget_netul)
 netwidgetul = wibox.widget.background()
 netwidgetul:set_widget(net_widgetul)
 netwidgetul:set_bgimage(beautiful.widget_display)
+
+-- | Battery | --
+
+bat_widget = lain.widgets.bat({
+    settings = function()
+        widget:set_markup(markup.font("Tamsyn 1", " ") .. " " .. bat_now.perc .. "% ")
+    end
+})
+batwidget = wibox.widget.background()
+batwidget:set_widget(bat_widget)
+batwidget:set_bgimage(beautiful.widget_display)
 
 -- | Clock / Calendar | --
 
@@ -458,6 +469,12 @@ for s = 1, screen.count() do
 
     right_layout:add(spr)
 
+    right_layout:add(spr5px)
+    right_layout:add(batwidget)
+    right_layout:add(spr5px)
+
+    right_layout:add(spr)
+
     right_layout:add(widget_clock)
     right_layout:add(widget_display_l)
     right_layout:add(clockwidget)
@@ -523,7 +540,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
     awful.key({ modkey,           }, "Return", function () exec(terminal) end),
-    awful.key({ modkey, "Control" }, "Return", function () exec(rootterm) end),
+    -- awful.key({ modkey, "Control" }, "Return", function () exec(rootterm) end),
     awful.key({ modkey,           }, "space",  function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space",  function () awful.layout.inc(layouts, -1) end)
     -- awful.key({ modkey            }, "a",      function () shexec(configuration) end),
@@ -541,6 +558,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey            }, "Up",       function () awful.client.moveresize(  0, -20,   0,   0) end),
     awful.key({ modkey            }, "Left",     function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey            }, "Right",    function () awful.client.moveresize( 20,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "Return",   function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey, "Control" }, "KP_Left",  function (c) c:geometry( { width = ww / 2, height = wh, x = 0, y = ph } ) end),
     awful.key({ modkey, "Control" }, "KP_Right", function (c) c:geometry( { width = ww / 2, height = wh, x = ww / 2, y = ph } ) end),
     awful.key({ modkey, "Control" }, "KP_Up",    function (c) c:geometry( { width = ww, height = wh / 2, x = 0, y = ph } ) end),
