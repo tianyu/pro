@@ -57,10 +57,11 @@ local shexec = awful.util.spawn_with_shell
 
 modkey        = "Mod4"
 terminal      = "konsole"
-tmux          = "konsole -e tmux"
+tmux          = "konsole --nofork -e tmux"
 termax        = terminal
 rootterm      = "sudo -i konsole"
 browser       = "firefox"
+editor        = "konsole --nofork -e vim"
 filemanager   = "spacefm"
 configuration = termax .. ' -e "vim -O $HOME/.config/awesome/rc.lua $HOME/.config/awesome/themes/' ..theme.. '/theme.lua"'
 
@@ -94,7 +95,7 @@ end
 -- | Menu | --
 
 menu_main = {
-  { "hibernate", "sudo pm-hibernate" },
+--  { "hibernate", "sudo pm-hibernate" },
   { "poweroff",  "sudo poweroff"     },
   { "restart",   awesome.restart     },
   { "reboot",    "sudo reboot"       },
@@ -102,7 +103,8 @@ menu_main = {
 
 mainmenu = awful.menu({ items = {
   { " awesome",       menu_main   },
-  { " file manager",  filemanager },
+  { " web browser",   browser     },
+  { " text editor",   editor     },
   { " root terminal", rootterm    },
   { " user terminal", terminal    }}})
 
@@ -508,7 +510,7 @@ root.buttons(awful.util.table.join(
 
 globalkeys = awful.util.table.join(
 
-    awful.key({ modkey,           }, "w",      function () mainmenu:show() end),
+    awful.key({ modkey,           }, "Menu",      function () mainmenu:show() end),
     awful.key({                   }, "XF86WakeUp",      function () mypromptbox[mouse.screen]:run() end),
     awful.key({ modkey,           }, "j",
         function ()
