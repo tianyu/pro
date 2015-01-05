@@ -61,7 +61,7 @@ tmux          = "konsole --nofork -e tmux"
 termax        = terminal
 rootterm      = "sudo -i konsole"
 browser       = "firefox"
-editor        = "konsole --nofork -e vim"
+editor        = "gvim"
 filemanager   = "spacefm"
 configuration = termax .. ' -e "vim -O $HOME/.config/awesome/rc.lua $HOME/.config/awesome/themes/' ..theme.. '/theme.lua"'
 
