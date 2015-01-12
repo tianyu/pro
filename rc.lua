@@ -522,6 +522,10 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, "l", function () awful.tag.incmwfact( 0.05)      end),
+    awful.key({ modkey,           }, "h", function () awful.tag.incmwfact(-0.05)      end),
     -- awful.key({ modkey,           }, "Tab",
     --     function ()
     --         awful.client.focus.history.previous()
@@ -561,6 +565,8 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey            }, "Left",     function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey            }, "Right",    function () awful.client.moveresize( 20,   0,   0,   0) end),
     awful.key({ modkey, "Control" }, "Return",   function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,           }, "o",        function (c) awful.client.movetoscreen(c, mouse.screen) end),
+
     awful.key({ modkey, "Control" }, "KP_Left",  function (c) c:geometry( { width = ww / 2, height = wh, x = 0, y = ph } ) end),
     awful.key({ modkey, "Control" }, "KP_Right", function (c) c:geometry( { width = ww / 2, height = wh, x = ww / 2, y = ph } ) end),
     awful.key({ modkey, "Control" }, "KP_Up",    function (c) c:geometry( { width = ww, height = wh / 2, x = 0, y = ph } ) end),
