@@ -410,26 +410,26 @@ for s = 1, screen.count() do
         right_layout:add(spr5px)
     end
 
-    right_layout:add(spr)
+    -- right_layout:add(spr)
 
-    right_layout:add(prev_icon)
-    right_layout:add(spr)
-    right_layout:add(stop_icon)
-    right_layout:add(spr)
-    right_layout:add(play_pause_icon)
-    right_layout:add(spr)
-    right_layout:add(next_icon)
-    right_layout:add(mpd_sepl)
-    right_layout:add(musicwidget)
-    right_layout:add(mpd_sepr)
+    -- right_layout:add(prev_icon)
+    -- right_layout:add(spr)
+    -- right_layout:add(stop_icon)
+    -- right_layout:add(spr)
+    -- right_layout:add(play_pause_icon)
+    -- right_layout:add(spr)
+    -- right_layout:add(next_icon)
+    -- right_layout:add(mpd_sepl)
+    -- right_layout:add(musicwidget)
+    -- right_layout:add(mpd_sepr)
 
-    right_layout:add(spr)
+    -- right_layout:add(spr)
 
-    right_layout:add(widget_mail)
-    right_layout:add(widget_display_l)
-    right_layout:add(mailwidget)
-    right_layout:add(widget_display_r)
-    right_layout:add(spr5px)
+    -- right_layout:add(widget_mail)
+    -- right_layout:add(widget_display_l)
+    -- right_layout:add(mailwidget)
+    -- right_layout:add(widget_display_r)
+    -- right_layout:add(spr5px)
 
     right_layout:add(spr)
 
