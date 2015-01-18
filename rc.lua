@@ -543,6 +543,10 @@ globalkeys = awful.util.table.join(
         cycle_filters = { cyclefocus.filters.same_screen, cyclefocus.filters.common_tag },
         keys = {'Tab', 'ISO_Left_Tab'}
     }),
+
+    awful.key({                   }, "XF86AudioRaiseVolume", function () exec("pulseaudio-ctl up 10") end),
+    awful.key({                   }, "XF86AudioLowerVolume", function () exec("pulseaudio-ctl down 10") end),
+
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
     awful.key({ modkey,           }, "Return", function () exec(terminal) end),
