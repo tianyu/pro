@@ -9,6 +9,10 @@ local naughty    = require("naughty")
 local lain       = require("lain")
 local cyclefocus = require('cyclefocus')
 
+-- | Compositing | --
+
+awful.util.spawn_with_shell("compton -b &")
+
 -- | Theme | --
 
 local theme = "pro-dark"
