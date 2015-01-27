@@ -573,6 +573,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey            }, "Left",     function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey            }, "Right",    function () awful.client.moveresize( 20,   0,   0,   0) end),
     awful.key({ modkey, "Control" }, "Return",   function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey, "Control" }, "space",    awful.client.floating.toggle                     ),
     awful.key({ modkey,           }, "o",        function (c) awful.client.movetoscreen(c, mouse.screen) end),
 
     awful.key({ modkey, "Control" }, "KP_Left",  function (c) c:geometry( { width = ww / 2, height = wh, x = 0, y = ph } ) end),
